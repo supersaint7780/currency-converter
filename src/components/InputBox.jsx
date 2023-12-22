@@ -20,13 +20,17 @@ function InputBox({
                     {label}
                 </label>
                 <input
+                    min={0}
                     id={amountInputId}
                     className="outline-none w-full bg-transparent py-1.5"
                     type="number"
+                    step="any"
+                    value={amount}
                     placeholder="Amount"
                     disabled={amountDisable}
-                    value={amount}
-                    onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
+                    onChange={(e) => {
+                        onAmountChange && onAmountChange(Number(e.target.value));
+                    }}
                 />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
